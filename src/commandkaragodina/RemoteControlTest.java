@@ -34,7 +34,7 @@ public class RemoteControlTest {
         Light livingRoomLight = new Light("Living room");
         Light kitchenLight = new Light("Kitchen");
         GarageDoor garageDoor = new GarageDoor("Garage door");
-        Stereo stereo = new Stereo("Living room");
+        Stereo stereo = new Stereo("Stereo");
         CeilingFan ceilingFan = new CeilingFan("Ceiling fan");
             
         LightOnCommand livingRoomLightOn = new LightOnCommand(livingRoomLight);
@@ -62,22 +62,27 @@ public class RemoteControlTest {
         remoteControl.onButtonWasPushed(0);
         System.out.println("*Pushing livingRoom Light OFF");
         remoteControl.offButtonWasPushed(0);
+        remoteControl.undoButtonWasPushed();
         System.out.println("*Pushing kitchen Light ON");
         remoteControl.onButtonWasPushed(1);
         System.out.println("*Pushing kitchen Light OFF");
         remoteControl.offButtonWasPushed(1);
+        remoteControl.undoButtonWasPushed();
         System.out.println("*Pushing ceiling Fan ON");
         remoteControl.onButtonWasPushed(2);
         System.out.println("*Pushing ceiling Fan OFF");
         remoteControl.offButtonWasPushed(2);
+        remoteControl.undoButtonWasPushed();
         System.out.println("*Pushing garage Door Open");
         remoteControl.onButtonWasPushed(3);
         System.out.println("*Pushing garage Door Close");
         remoteControl.offButtonWasPushed(3);
+        remoteControl.undoButtonWasPushed();
         System.out.println("*Pushing stereo ON");
         remoteControl.onButtonWasPushed(4);
         System.out.println("*Pushing stereo OFF");
         remoteControl.offButtonWasPushed(4);
+        remoteControl.undoButtonWasPushed();
 
     }
 }

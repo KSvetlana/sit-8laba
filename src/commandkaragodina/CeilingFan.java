@@ -11,30 +11,11 @@ package commandkaragodina;
 public class CeilingFan {
     String name;
     int speed;
-    public static final int HIGH = 3;
-    public static final int MEDIUM = 2;
-    public static final int LOW = 1;
-    public static final int OFF = 0;
     
     CeilingFan(String name) {
         this.name = name;
     }
-    
-    public void high() {
-        System.out.println(name + " CeilingFan is HIGH");
-        speed = HIGH;
-    }
-    
-    public void medium() {
-        System.out.println(name + " CeilingFan is MEDIUM");
-        speed = MEDIUM;
-    }
-    
-    public void low() {
-        System.out.println(name + " CeilingFan is LOW");
-        speed = LOW;
-    }
-           
+     
     public void on(){
         System.out.println(name+" On");
     }
