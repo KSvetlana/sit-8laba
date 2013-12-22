@@ -9,25 +9,29 @@ package commandkaragodina;
  * @author Светлана
  */
 public class GarageDoor{
-    
+    String name;
+
+    public GarageDoor(String name) {
+        this.name = name;
+    }
     
     public void up(){
-        System.out.println("Garage Door is Open");
+        System.out.println(name+" is Open");
     }
     
     public void down(){
-        System.out.println("Garage Door is Close");
+        System.out.println(name+" is Close");
     }
     
     public void stop(){
-        System.out.println("Opening Garage Door is Stoped");
+        System.out.println(name+" is Stoped");
     }
     
     public void lightOn(){
-        System.out.println("Light is On");
+        System.out.println(name+" Light is On");
     }
     
     public void lightOff(){
-        System.out.println("Light is Off");
+        System.out.println(name+" Light is Off");
     }
 }
