@@ -36,6 +36,8 @@ public class RemoteControlTest {
         GarageDoor garageDoor = new GarageDoor("Garage door");
         Stereo stereo = new Stereo("Stereo");
         CeilingFan ceilingFan = new CeilingFan("Ceiling fan");
+        TV tv = new TV("TV");
+        Hottub hottub = new Hottub("Hottub");
             
         LightOnCommand livingRoomLightOn = new LightOnCommand(livingRoomLight);
         LightOffCommand livingRoomLightOff = new LightOffCommand(livingRoomLight);
@@ -50,6 +52,12 @@ public class RemoteControlTest {
         GarageDoorOpenCommand garageDoorOpen = new GarageDoorOpenCommand(garageDoor);
         GarageDoorCloseCommand garageDoorClose = new GarageDoorCloseCommand(garageDoor);
         
+        TVOnCommand tvOn = new TVOnCommand(tv);
+        TVOffCommand tvOff = new TVOffCommand(tv);
+        
+        HottubOnCommand hottubOn = new HottubOnCommand(hottub);
+        HottubOffCommand hottubOff = new HottubOffCommand(hottub);
+        
         StereoOnCommand stereoOn = new StereoOnCommand(stereo);
         StereoOffCommand stereoOff = new StereoOffCommand(stereo);
                     
@@ -60,8 +68,20 @@ public class RemoteControlTest {
         remoteControl.setCommand(4,  stereoOn,  stereoOff);
         remoteControl.setCommand(5,  ceilingFanHigh,  ceilingFanOff);
         remoteControl.setCommand(6,  ceilingFanMedium,  ceilingFanOff);
+        
+        Command[] partyOn = { livingRoomLightOn, stereoOn, tvOn, hottubOn };
+        Command[] partyOff = { livingRoomLightOff, stereoOff, tvOff, hottubOff };
+            
+        MacroCommand partyOnMacro = new MacroCommand(partyOn);
+        MacroCommand partyOffMacro = new MacroCommand(partyOff);
+            
+        remoteControl.setCommand(7,  partyOnMacro,  partyOffMacro);
             
         System.out.println(remoteControl);
+        System.out.println("--- Pushing Macro ON ---");
+        remoteControl.onButtonWasPushed(7);
+        System.out.println("--- Pushing Macro OFF ---");
+        remoteControl.offButtonWasPushed(7);
         System.out.println("*Pushing livingRoom Light ON");
         remoteControl.onButtonWasPushed(0);
         System.out.println("*Pushing livingRoom Light OFF");

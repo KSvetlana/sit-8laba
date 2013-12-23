@@ -14,11 +14,11 @@ public class RemoteControl {
     Command undoCommand;
     
     public RemoteControl() {
-        onCommands = new Command[7];
-        offCommands = new Command[7];
+        onCommands = new Command[8];
+        offCommands = new Command[8];
         
         Command noCommand = new NoCommand();
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 8; i++) {
             onCommands[i] = noCommand;
             offCommands[i] = noCommand;
         }
