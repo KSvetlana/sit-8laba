@@ -44,6 +44,8 @@ public class RemoteControlTest {
         
         CeilingFanOnCommand ceilingFanOn = new CeilingFanOnCommand(ceilingFan);
         CeilingFanOffCommand ceilingFanOff = new CeilingFanOffCommand(ceilingFan);
+        CeilingFanHighCommand ceilingFanHigh = new CeilingFanHighCommand(ceilingFan);
+        CeilingFanMediumCommand ceilingFanMedium = new CeilingFanMediumCommand(ceilingFan);
         
         GarageDoorOpenCommand garageDoorOpen = new GarageDoorOpenCommand(garageDoor);
         GarageDoorCloseCommand garageDoorClose = new GarageDoorCloseCommand(garageDoor);
@@ -56,6 +58,8 @@ public class RemoteControlTest {
         remoteControl.setCommand(2,  ceilingFanOn,  ceilingFanOff);
         remoteControl.setCommand(3,  garageDoorOpen,  garageDoorClose);
         remoteControl.setCommand(4,  stereoOn,  stereoOff);
+        remoteControl.setCommand(5,  ceilingFanHigh,  ceilingFanOff);
+        remoteControl.setCommand(6,  ceilingFanMedium,  ceilingFanOff);
             
         System.out.println(remoteControl);
         System.out.println("*Pushing livingRoom Light ON");
@@ -83,6 +87,15 @@ public class RemoteControlTest {
         System.out.println("*Pushing stereo OFF");
         remoteControl.offButtonWasPushed(4);
         remoteControl.undoButtonWasPushed();
-
+        System.out.println("*Pushing Ceiling fan HIGH");
+        remoteControl.onButtonWasPushed(5);
+        System.out.println("*Pushing ceiling Fan OFF");
+        remoteControl.offButtonWasPushed(5);
+        remoteControl.undoButtonWasPushed();
+        System.out.println("*Pushing Ceiling fan MEDIUM");
+        remoteControl.onButtonWasPushed(6);
+        System.out.println("*Pushing ceiling Fan OFF");
+        remoteControl.offButtonWasPushed(6);     
+        remoteControl.undoButtonWasPushed();
     }
 }
